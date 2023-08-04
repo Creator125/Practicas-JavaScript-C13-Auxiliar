@@ -3,22 +3,23 @@ Cálculo del promedio de una lista de números. Dada una lista de 'n'
 números, debemos sumarlos y dividir la suma por 'n' para obtener el 
 promedio.
 */
-let listaNumero = [];
-let numElementos = parseInt(prompt("Ingresar la cantidad de numeros a almacenar: "));
 
+function obtenerListaNumeros() {
+    let listaNumero = [];
+    let numElementos = parseInt(prompt("Ingresar la cantidad de numeros a almacenar: "));
 
-
-function obtenerListaNumeros(lista, elementos) {
-    for (let i = 0; i < elementos; i++) {
-        lista.push(parseInt(prompt("Ingrese  un numero "))); 
+    for (let i = 0; i < numElementos; i++) {
+        listaNumero.push(parseInt(prompt("Ingrese  un numero "))); 
     }
+
+    return listaNumero;
 }
 
 
 function calcularSuma(listaNumero) {
     let suma = 0;
     
-    for (let i = 0; i < listaNumero; i++) {
+    for (let i = 0; i < listaNumero.length; i++) {
         suma += listaNumero[i]
     }
     
@@ -33,7 +34,15 @@ function calcularPromedio(listaNumero){
     return prom;
 }
 
-function promListaNum(listaNumero,numElementos) {
-    obtenerListaNumeros(listaNumero, numElementos);
-    calcularPromedio();
+function result() {
+    const listaLlena = obtenerListaNumeros();
+
+    if(listaLlena.length != 0) {
+        const promedioCalculado = calcularPromedio(listaLlena);
+        console.log(promedioCalculado);
+    }else{
+        alert("La lista está vacia");
+    }
 }
+
+result();
