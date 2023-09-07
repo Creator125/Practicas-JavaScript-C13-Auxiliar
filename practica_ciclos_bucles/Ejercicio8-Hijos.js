@@ -4,23 +4,27 @@ tienen hijos y cuántos no tienen, además se desea conocer el promedio del núm
 de hijos
 */
 
-let n = parseInt(prompt("Ingrese la cantidad de usuarios: "));
-let i = 0
-let cant;
-let contHijos;
-let contNoHijos;
+let usuarios = parseInt(prompt("Ingrese la cantidad de usuarios: "));
+let cantHijos;
+let contadorConHijos = 0;
+let contadorSinHijos = 0;
 
-while (i >= n) {
-    cant = parseInt(prompt("Ingrese la cantidad de hjos: "));
+let i = 0;
 
-    if(cant != 0){
-        contHijos++;
+while (i <= usuarios) {
+    cantHijos = parseInt(prompt("Ingrese la cantidad de hijos: "));
+
+    if (cantHijos != 0) {
+        contadorConHijos++;
     }else{
-        contNoHijos++;
+        contadorSinHijos++;
     }
 
     i++;
 }
 
-let promHijos = contHijos / n;
+let promedioConHijos = contadorConHijos / usuarios;
+let promedioSinHijos = contadorSinHijos / usuarios;
 
+alert(`Personas con hijos: ${contadorConHijos} \nPromedio: ${promedioConHijos}\n
+    \nPersonas sin hijos: ${contadorSinHijos} \nPromedio: ${promedioSinHijos}`);
